@@ -37,7 +37,7 @@ class NotePolicy
      */
     public function update(User $user, Note $note): bool
     {
-        return $user->id === $note->user_id;
+        return $user->id === $note->user_id && now() <= $note->send_date;
     }
 
     /**
@@ -48,7 +48,6 @@ class NotePolicy
         return $user->id === $note->user_id;
     }
 
-    /**
      * Determine whether the user can restore the model.
      */
     public function restore(User $user, Note $note): bool
@@ -62,5 +61,6 @@ class NotePolicy
     public function forceDelete(User $user, Note $note): bool
     {
         //
-    }
+    }    /**
+
 }
