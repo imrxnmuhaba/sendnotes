@@ -8,6 +8,7 @@ new class extends Component {
     public $noteRecipient;
     public $noteSendDate;
 
+
     public function submit()
     {
         $validate = $this->validate([
@@ -22,7 +23,7 @@ new class extends Component {
             'body' => $this->noteBody,
             'recipient' => $this->noteRecipient,
             'send_date' => $this->noteSendDate,
-            'is_published' => false,
+            'is_published' => true,
         ]);
 
         redirect(route('notes.index'));
@@ -38,7 +39,7 @@ new class extends Component {
         <x-input icon="calendar" wire:model="noteSendDate" type="date" label="SendDate"/>
 
         <div class="pt-4 ">
-            <x-primary-button wire:click="submit" spinner icon="calendar">Schedule Note</x-primary-button>
+            <x-primary-button type="submit" spinner icon="calendar">Schedule Note</x-primary-button>
         </div>
         <x-errors/>
     </form>
