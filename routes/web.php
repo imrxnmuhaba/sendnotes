@@ -1,10 +1,13 @@
  <?php
 
+ use App\Livewire\Counter;
  use App\Models\Note;
  use Illuminate\Support\Facades\Route;
  use Livewire\Volt\Volt;
 
  Route::view('/', 'welcome');
+
+ Route::get('/counter', Counter::class);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
